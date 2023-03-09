@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Add site id for sitemap creation
+SITE_ID = 1
 
 # Application definition
 
@@ -37,6 +39,8 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "django.contrib.sitemaps"
 ]
 
 THIRD_PARTY_APPS = [
