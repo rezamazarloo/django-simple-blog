@@ -1,0 +1,26 @@
+# command helps
+
+## restore forgotten postgesql password
+* back up this file as .bk:C:\Program Files\PostgreSQL\15\data\pg_hba.conf
+* open it and edit Method part with word "trust"
+* restart postgres service
+* add C:\Program Files\PostgreSQL\15\bin to enviroment variable in system variable path
+* run "psql -U postgres" in cmd
+* run "ALTER USER postgres WITH PASSWORD 'new_password';" then exit
+* bring back main pg_hba.conf and restart service
+
+## create user and db in postgres
+* psql -U postgres
+* CREATE USER blog WITH PASSWORD 'xxxxxx';
+* CREATE DATABASE blog OWNER blog ENCODING 'UTF8';
+
+## dump and load data
+* python -Xutf8 manage.py dumpdata --indent=2 --output=mysite_data.json
+* python manage.py migrate
+* python manage.py loaddata mysite_data.json  
+  if had error run: python manage.py loaddata --exclude auth.permission --exclude contenttypes mysite_data.json
+
+## freeze and install python packages
+* pip freeze > requirements.txt
+* pip install -r requirements.txt
+
