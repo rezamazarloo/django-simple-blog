@@ -14,3 +14,7 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ["name", "email", "body"]
         # exclude = ["created", "updated"]
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
